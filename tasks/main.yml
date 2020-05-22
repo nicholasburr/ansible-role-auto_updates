@@ -1,0 +1,13 @@
+---
+- block:
+  - name: "include {{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml tasks"
+    include_tasks: "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+    register: auto_updates_tasks
+
+  rescue:
+    - debug:
+        var: auto_updates_tasks
+
+#    - debug:
+#        msg: "Operating system is not supported."
+#      when: auto_updates_vars is failed

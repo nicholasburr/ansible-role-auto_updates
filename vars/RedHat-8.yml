@@ -1,0 +1,4 @@
+auto_updates_package: dnf-automatic
+auto_updates_service:
+auto_updates_config_path: /etc/dnf
+auto_updates_config_templates: automatic.conf

@@ -1,0 +1,68 @@
+---
+# Option(s) in yum_cron templates.
+#yum_cron_systemname: "{{ inventory_hostname }}"
+
+# Red Hat Enterprise Linux 6 template options.
+#yum_cron_yum_parameter: "{{ omit }}"
+#yum_cron_check_only: no
+#yum_cron_check_first: no
+#yum_cron_download_only: no
+#yum_cron_error_level: 1
+#yum_cron_debug_level: 1
+#yum_cron_randomwait: "60"
+#yum_cron_mailto: root
+#yum_cron_day_of_week: "12345"
+#yum_cron_cleanday: "0"
+#yum_cron_service_waits: "yes"
+#yum_cron_service_wait_time: 300
+
+# Red Hat Enterprise Linux 7 template options.
+yum_cron_update_cmd: minimal-security-severity:Critical
+yum_cron_update_messages: yes
+yum_cron_download_updates: yes
+yum_cron_apply_updates: yes
+yum_cron_random_sleep: 15
+yum_cron_emit_via: 'email, motd'
+yum_cron_output_width: 80
+yum_cron_email_from: root
+yum_cron_email_to: root
+yum_cron_email_host: localhost
+yum_cron_group_list: None
+yum_cron_systemname: "{{ inventory_hostname }}"
+yum_cron_group_package_types: 'mandatory, default'
+yum_cron_debuglevel: '-2'
+yum_cron_exclude_packages: 'kernel*'
+yum_cron_mdpolicy: 'group:main'
+yum_cron_assumeyes: false
+
+# Red Hat Enterprise Linux 7 hourly template options.
+yum_cron_hourly_update_cmd: minimal-security-severity:Critical
+yum_cron_hourly_update_messages: yes
+yum_cron_hourly_download_updates: yes
+yum_cron_hourly_apply_updates: yes
+yum_cron_hourly_random_sleep: 15
+yum_cron_hourly_emit_via: 'email, motd'
+yum_cron_hourly_output_width: 80
+yum_cron_hourly_email_from: root
+yum_cron_hourly_email_to: root
+yum_cron_hourly_email_host: localhost
+yum_cron_hourly_group_list: None
+yum_cron_hourly_systemname: "{{ inventory_hostname }}"
+yum_cron_hourly_group_package_types: 'mandatory, default'
+yum_cron_hourly_debuglevel: '-2'
+yum_cron_hourly_exclude_packages: 'kernel*'
+yum_cron_hourly_mdpolicy: 'group:main'
+yum_cron_hourly_assumeyes: false
+
+# Red Hat Enterprise Linux 8 template options.
+dnf_automatic_upgrade_type: security
+dnf_automatic_random_sleep: 0
+dnf_automatic_download_updates: yes
+dnf_automatic_apply_updates: yes
+dnf_automatic_system_name: "{{ inventory_hostname }}"
+dnf_automatic_emit_via: 'email, motd'
+dnf_automatic_email_from: root
+dnf_automatic_email_to: root
+dnf_automatic_email_host: localhost
+dnf_automatic_exclude_packages: 'kernel*'
+dnf_automatic_debuglevel: 1

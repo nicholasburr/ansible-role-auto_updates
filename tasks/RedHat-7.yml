@@ -1,0 +1,24 @@
+---
+- name: install yum-cron
+  yum:
+    name: yum-cron
+    state: present
+    disablerepo: '*'
+    enablerepo: '*-optional-rpms'
+
+- name: configure /etc/yum/yum-cron.conf
+  template:
+    src: "{{ item }}.j2"
+    dest: "{{ item }}"
+    mode: 0644
+    owner: root
+    group: root
+  with_items:
+    - yum-cron.conf
+    - yum-cron-hourly.conf
+
+- name: enable yum-cron service
+  service:
+    name: yum-cron
+    state: started
+    enabled: true

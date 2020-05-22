@@ -1,0 +1,23 @@
+---
+- name: install yum-cron
+  yum:
+    name: yum-cron
+    state: present
+    disablerepo: '*'
+    enablerepo: "rhel-{{ ansible_distribution_major_version }}-server-optional-rpms"
+
+- name: configure /etc/sysconfig/yum-cron
+  template:
+    src: yum-cron-el6
+    dest: /etc/yum/yum-cron.conf
+    mode: 0644
+    owner: root
+    group: root
+  with_items:
+    - yum-cron-el7-hourly.conf
+    -
+- name: enable yum-cron service
+  service:
+    name: yum-cron
+    state: started
+    enabled: true

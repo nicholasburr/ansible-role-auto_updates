@@ -1,0 +1,19 @@
+galaxy_info:
+  role_name: auto_updates
+  author: Nicholas Burr
+  description: Install and configure yum-cron package. Based on https://access.redhat.com/solutions/2823901.
+
+  license: MIT
+
+  min_ansible_version: 2.9
+
+  platforms:
+  - name: Red Hat Enterprise Linux
+    versions:
+#    - 6 Needs investigation
+    - 7
+    - 8
+
+  galaxy_tags: []
+
+dependencies: []

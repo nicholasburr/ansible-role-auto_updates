@@ -1,0 +1,2 @@
+auto_updates_package: yum-cron
+auto_updates_service: yum-cron
